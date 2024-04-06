@@ -1,7 +1,7 @@
 ---
 title: "Project 2"
 subtitle: "Proposal"
-authors: ""
+authors: "Sydney Stitt"
 format: html
 editor: visual
 ---
@@ -10,8 +10,14 @@ editor: visual
 #| label: load-pkgs
 #| message: false
 #| warning: false
-
 library(tidyverse)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(tmap)
+library(shiny)
+library(lubridate)
 ```
 
 ## Dataset
@@ -19,12 +25,66 @@ library(tidyverse)
 ```{r load-data}
 #| label: load-data
 #| message: false
-
 ## read data 
+cat_movement <- read_csv("data/cats_us.csv")
+cat_reference <- read_csv("data/cats_us_reference.csv")
+print(dim(cat_movement))
+print(dim(cat_reference))
+save(cat_movement, file = "cat_movement.RData")
+save(cat_reference, file = "cat_reference.RData")
 ```
-
 
 ## Reason for Choosing this Dataset
 
+**Goals and Motivation:**
+
+I am curious in exploring what variables (such as age, diet, hunting, hours spent indoors, or sex) affect a cat's decision to travel far outside. I have had cats all my life, and my cat loves to go on walks inside. I am personally curious to see if similar cats to him (young male cats) also like to go outside and explore. The goal of this project is to create a spatial temporal interactive map of cat movement and identify any variables that may impact a cat movement.
+
+**Data Information:**
+
+I am using two TidyTuesday datasets collected by volunteer cat owners in the United States for zoologists Roland Kays et al.'s study from 2013 to 2017. Kays et al. published this data in their 2020 paper studying the ecological impacts and outdoor ranges of pet cats (cited below). Cat owners collected data via collar GPS on their cats as they explored outside. The dataset cat_movement has observations of individual cat's longitude and latitude as well as time stamps for their movements collected from 2013 to 2016. cat_movement has 659770 observations across 15 variables, each observation representing a sensor movement detected by the cat's GPS. The dataset cat_reference has data on the 154 American cats that were tracked, with 154 observations representing each individual cat across 21 variables such as sex, age, diet, and time spent indoors.
+
+**Paper/Data Citation:**
+
+Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. [doi:10.1111/acv.12563](http://dx.doi.org/10.1111/acv.12563)
 
 ## Questions and Analysis Plan
+
+**I plan to address the following questions with my project:**
+
+1.  Do younger cats tend to travel longer distances and spend more time outside than older cats?
+2.  Do cats travel in patterns or "seemingly" randomly (based on environmental stimulus or reactions)?
+
+**Analysis Plan:**
+
+*Week 4 (4/8 - 4/14)* Clean data and tidy observations with tidyverse, dplyr, and readr. I will need to especially separate the date and time observations using lubridate. Merge the reference and movement data together, or determine if the project can be done with the datasets separate. Conduct peer review of another group's project proposal.
+
+*Week 5 (4/15 - 4/21)* Incorporate proposal feedback into a reformed proposal. Start working on practice static graphs to help visualize what the final model will look like with ggplot2, sf, or tmap packages. Start on a shiny app to create an interactive map using the shiny package. Create summary statistics to help contextualize the map using dplyr, or create a function within the app to interactively generate summary statistics.
+
+*Week 6 (4/22 - 4/26)* Clean up the app. Present the project with a Quarto presentation! Get preliminary feedback from Adrien.
+
+*Week 7-8 (4/27 - 5/9)* Incorporate Adrien's feedback and submit the final writeup. Tidy the website.
+
+**Project Organization:**
+
+The repository is organized by the following folders and files
+
+-   `/data/*`: Data folder
+
+    -   `f/data/*cat_movement.RData`: Cat movement data in rda format
+
+    -   `f/data/*cat_reference.RData`: Cat reference data in rda format
+
+    -   `f/data/*cat_movement.csv`: Cat movement data in csv format
+
+    -   `f/data/*cat_reference.csv`: Cat reference data in csv format
+
+    -   `/data/README.md`: Metadata about your dataset including information on provenance, codebook, etc.
+
+-   `index.qmd`: Your project write-up (to be completed)
+
+-   `proposal.qmd`: Your project proposal (to be revised after peer feedback)
+
+-   `presentation.qmd`: Your project presentation (to be completed)
+
+-   `_quarto.yml`: Setup file for project website

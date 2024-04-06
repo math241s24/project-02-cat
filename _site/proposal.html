@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project 2</title>
+<title>Project 2 - Project 2: Spatial and Temporal Interactive App of Cat Movement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 2</h1>
+<h1 class="title">Project 2: Spatial and Temporal Interactive App of Cat Movement</h1>
 <p class="subtitle lead">Proposal</p>
 </div>
 
@@ -210,6 +210,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 154  21</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(cat_movement, <span class="at">file =</span> <span class="st">"cat_movement.RData"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(cat_reference, <span class="at">file =</span> <span class="st">"cat_reference.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="reason-for-choosing-this-dataset" class="level2">
@@ -229,10 +231,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Do cats travel in patterns or “seemingly” randomly (based on environmental stimulus or reactions)?</li>
 </ol>
 <p><strong>Analysis Plan:</strong></p>
-<p><em>Week 4 (4/8 - 4/14)</em> Clean data and tidy observations with tidyverse, dplyr, and readr. I will need to especially separate the date and time observations using lubridate. Merge the reference and movement data together, or determine if the project can be done with the datasets separate. Conduct peer review of another group’s project proposal.</p>
+<p><em>Week 4 (4/8 - 4/14)</em> Clean data and tidy observations with tidyverse, dplyr, and readr. I will need to specifically separate the date and time observations using lubridate. Merge the reference and movement data together, or determine if the project can be done with the datasets separate. Conduct peer review of another group’s project proposal.</p>
 <p><em>Week 5 (4/15 - 4/21)</em> Incorporate proposal feedback into a reformed proposal. Start working on practice static graphs to help visualize what the final model will look like with ggplot2, sf, or tmap packages. Start on a shiny app to create an interactive map using the shiny package. Create summary statistics to help contextualize the map using dplyr, or create a function within the app to interactively generate summary statistics.</p>
 <p><em>Week 6 (4/22 - 4/26)</em> Clean up the app. Present the project with a Quarto presentation! Get preliminary feedback from Adrien.</p>
 <p><em>Week 7-8 (4/27 - 5/9)</em> Incorporate Adrien’s feedback and submit the final writeup. Tidy the website.</p>
+<p><strong>Project Organization:</strong></p>
+<p>The repository is organized by the following folders and files</p>
+<ul>
+<li><p><code>/data/*</code>: Data folder</p>
+<ul>
+<li><p><code>f/data/*cat_movement.RData</code>: Cat movement data in rda format</p></li>
+<li><p><code>f/data/*cat_reference.RData</code>: Cat reference data in rda format</p></li>
+<li><p><code>f/data/*cat_movement.csv</code>: Cat movement data in csv format</p></li>
+<li><p><code>f/data/*cat_reference.csv</code>: Cat reference data in csv format</p></li>
+<li><p><code>/data/README.md</code>: Metadata about the datasets (to be edited after data wrangling)</p></li>
+</ul></li>
+<li><p><code>index.qmd</code>: The project write-up (to be completed)</p></li>
+<li><p><code>proposal.qmd</code>: The project proposal (to be revised after peer feedback)</p></li>
+<li><p><code>presentation.qmd</code>: The project presentation (to be completed)</p></li>
+<li><p><code>_quarto.yml</code>: Setup file for project website</p></li>
+</ul>
 
 
 </section>

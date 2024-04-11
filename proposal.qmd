@@ -57,13 +57,13 @@ Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald 
 
 **Analysis Plan:**
 
-*Week 4 (4/8 - 4/14)* Clean data and tidy observations with tidyverse, dplyr, and readr. I will need to specifically separate the date and time observations using lubridate. Merge the reference and movement data together, or determine if the project can be done with the datasets separate. Conduct peer review of another group's project proposal.
+*Week 4 (4/8 - 4/14)* **Clean data and tidy observations** with tidyverse, dplyr, and readr. I will need to specifically separate the date and time observations using lubridate. Merge the reference and movement data together, or determine if the project can be done with the datasets separate. **Conduct peer review** of another group's project proposal.
 
-*Week 5 (4/15 - 4/21)* Incorporate proposal feedback into a reformed proposal. Start working on practice static graphs to help visualize what the final model will look like with ggplot2, sf, or tmap packages. Start on a shiny app to create an interactive map using the shiny package. Create summary statistics to help contextualize the map using dplyr, or create a function within the app to interactively generate summary statistics.
+*Week 5 (4/15 - 4/21)* Incorporate proposal feedback into a **reformed proposal**. Start working on practice static graphs to help visualize what the final model will look like with ggplot2, sf, or tmap packages. Start on a **shiny app to create an interactive map** using the shiny package. Create summary statistics to help contextualize the map using dplyr, or create a function within the app to interactively generate summary statistics.
 
-*Week 6 (4/22 - 4/26)* Clean up the app. Present the project with a Quarto presentation! Get preliminary feedback from Adrien.
+*Week 6 (4/22 - 4/26)* Clean up the app. **Present the project with a Quarto presentation**! Get preliminary feedback from Adrien.
 
-*Week 7-8 (4/27 - 5/9)* Incorporate Adrien's feedback and submit the final writeup. Tidy the website.
+*Week 7-8 (4/27 - 5/9)* Incorporate Adrien's feedback and submit the **final writeup**. Tidy the **website**.
 
 **Project Organization:**
 

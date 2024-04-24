@@ -1,19 +1,14 @@
----
-title: "The Cat's Meow: Tracking Outdoor Cat Movement over Time"
-subtitle: "Project 2"
-author: "Team Cat: Sydney Stitt"
-title-slide-attributes:
-  data-slide-number: none
-format: revealjs
-editor: visual
-execute:
-  echo: false
----
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    https://shiny.posit.co/
+#
 
-```{r}
-#| label: load-packages
-#| include: false
-
+# Put all necessary libraries here
+library(shiny)
 library(tidyverse)
 library(dplyr)
 library(readr)
@@ -22,60 +17,11 @@ library(sf)
 library(tmap)
 library(shiny)
 library(lubridate)
-```
 
-```{r}
-#| label: setup
-#| include: false
-
-# For better figure resolution
-knitr::opts_chunk$set(
-  fig.retina = 3, 
-  dpi = 300, 
-  fig.width = 6, 
-  fig.asp = 0.618, 
-  out.width = "70%"
-  )
-```
-
-```{r}
-#| label: load-data
-#| include: false
-
+#Pulling data from csv files
 cat_movement <- read_csv("data/cats_us.csv")
 cat_reference <- read_csv("data/cats_us_reference.csv")
 
-```
-
-# Topic & Data
-
--   Two datasets
-
-    -   cat_us: GPS coordinates & timestamps of 140+ cats from the United States from 2013-2016
-
-    -   cat_us_reference: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings)
-
--   Data collected by volunteer cat owners from 12 geographically diverse US states
-
--   Initially used to analyze the ecological impacts of outdoor cats
-
-# Research Question
-
-1.  Do younger cats tend to travel longer distances and spend more time outside than older cats?
-
-2.  Do cats travel in patterns or "seemingly" randomly (based on environmental stimulus or reactions)?
-
-# Data Wrangling (or turning 659770 into 81023)
-
-1.  Remove cats with NA metadata observations or locations outside the US
-
-2.  Create a function that calculates the distance between two sets of coordinates into a new variable using the Haversine formula
-
-3.  Remove unnecessary variables and tidy up observations (time stamps and comments)
-
-4.  Take the averages of distances per day, per 3 minute observation cycle, and per cat for comparison
-
-```{r}
 #Tidying up the date and time variables in both dataframes
 cat_movement <- cat_movement %>% 
   mutate(Time = format(as.POSIXct(timestamp), 
@@ -102,11 +48,9 @@ haversine_distance <- function(lon1, lat1, lon2, lat2) {
   lat1_rad <- lat1 * pi / 180
   lon2_rad <- lon2 * pi / 180
   lat2_rad <- lat2 * pi / 180
-  
-# Earth radius in kilometers
+  # Earth radius in kilometers
   R <- 6371
-  
-# Haversine formula
+  # Haversine formula
   dlon <- lon2_rad - lon1_rad
   dlat <- lat2_rad - lat1_rad
   a <- sin(dlat/2)^2 + cos(lat1_rad) * cos(lat2_rad) * sin(dlon/2)^2
@@ -127,6 +71,7 @@ cat_movement <- cat_movement %>%
 
 #Disable scientific notation
 options(scipen = 999)
+
 #Creating variables for average distances per 3 minute cycle and per day
 summaries_by_day <- cat_movement %>%
   group_by(`individual-local-identifier`, Date) %>%
@@ -200,18 +145,55 @@ merged_summaries_by_cat <- merged_summaries_by_cat %>%
   subset(select = -`tag-model`) %>%
   subset(select = -`tag-readout-method`) %>%
   filter(`study-site` != "Denmark" & `study-site` != "Newfoundland")
-```
 
-# Data Visualizations
 
--   Will eventually make a Shiny App!
 
-# Data Analysis
 
-# Caveats/Further Research
 
-# Thank you for listening! Any questions?
 
-# Citations
 
--   Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. [doi:10.1111/acv.12563](http://dx.doi.org/10.1111/acv.12563)
+
+
+
+
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("Old Faithful Geyser Data"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white',
+             xlab = 'Waiting time to next eruption (in mins)',
+             main = 'Histogram of waiting times')
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)

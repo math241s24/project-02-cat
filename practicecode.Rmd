@@ -47,7 +47,7 @@ cat_reference <- cat_reference %>%
          `Time-Deploy-Off` = format(as.POSIXct(`deploy-off-date`), 
                                     format = "%H:%M:%S")) %>%
   subset(select = -`deploy-off-date`) %>%
-  subset(select = -`deploy-on-date`) 
+  subset(select = -`deploy-on-date`)
 #ordering data alphabetically by animal id
 cat_reference <- cat_reference[order(cat_reference$`animal-id`), ]
 
@@ -130,11 +130,7 @@ merged_summaries_by_cat$prey_p_month <- as.numeric(gsub("prey_p_month: ",
                                                         merged_summaries_by_cat$prey_p_month))
 
 #Tidying up the manipulation comments variable by separating it into two variables for hours spent indoors and number of cats in the household 
-merged_summaries_by_cat <- cbind(merged_summaries_by_cat, 
-                                 do.call(rbind, 
-                                         strsplit(merged_summaries_by_cat$`manipulation-comments`, 
-                                                  "; 
-                                                  ", fixed = TRUE)))
+merged_summaries_by_cat <- cbind(merged_summaries_by_cat, do.call(rbind, strsplit(trimws(merged_summaries_by_cat$`manipulation-comments`), ";", fixed = TRUE)))
 merged_summaries_by_cat <- merged_summaries_by_cat %>%
   subset(select = -`3`) %>%
   rename(`hrs_indoors` = `1`,
@@ -169,6 +165,45 @@ merged_summaries_by_cat <- merged_summaries_by_cat %>%
 
 ```{r}
 #Graphing individual cat movement on one day
-motorcat <- cat_movement %>%
-  filter()
+sparkles_cat <- cat_movement %>%
+  filter(`individual-local-identifier` == "Sparkles") %>%
+  filter(Date == "2016-03-29") %>%
+  mutate(Time = hms(Time))
+sparkles_cat <- sparkles_cat[order(sparkles_cat$Time), ]
+
+ggplot(data = sparkles_cat, na.rm = TRUE, aes(x = Time, y = distance)) +
+  geom_density()
+
+ggplot(sparkles_cat, aes(x = `location-long`, y = `location-lat`, group = 1)) +
+  geom_path() + 
+  geom_point() + # Use geom_path() for a smoother line or geom_line() for straight lines
+  labs(x = "Longitude", y = "Latitude", title = "Location Changes Over Time")
+```
+
+```{r}
+merged_summaries_by_cat %>%
+```
+
+```{r}
+#Function
+plot_cat_movement <- function(cat_movement_data, cat_identifier, date) {
+  motorcat_cat <- cat_movement_data %>%
+    filter(`individual-local-identifier` == cat_identifier) %>%
+    filter(Date == date) %>%
+    mutate(Time = hms(Time)) %>%
+    arrange(Time)
+  
+  # Generate title dynamically
+  title <- paste("Location Changes Over Time for", cat_identifier, "on", date)
+  
+  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1)) +
+    geom_path() + 
+    geom_point() +
+    geom_text(aes(label = format(Time, "%H:%M:%S")), hjust = 1.2, vjust = 0) +  # Add time stamps
+    labs(x = "Longitude", y = "Latitude", title = title)
+}
+
+# Usage example
+plot_cat_movement(cat_movement, "Motorcat", "2013-08-14")
+
 ```

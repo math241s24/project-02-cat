@@ -22,6 +22,7 @@ library(sf)
 library(tmap)
 library(shiny)
 library(lubridate)
+library(viridis)
 ```
 
 ```{r}
@@ -49,19 +50,19 @@ cat_reference <- read_csv("data/cats_us_reference.csv")
 
 # So, What is a Cat?
 
-![This is cat, his name is Moony. He is the most spoiled, silly cat out there!](Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg){fig-align="center"}
+![This is cat, his name is **Moony**. He is the most spoiled, silly cat out there!](Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg){fig-align="center"}
 
 # Data
 
 -   Two datasets
 
-    -   cat_us: GPS coordinates & timestamps of 140+ cats from the United States from 2013-2016
+    -   **cat_us**: GPS coordinates & timestamps of 140+ cats from the United States from 2013-2016
 
-    -   cat_us_reference: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings) and data collection metadata
+    -   **cat_us_reference**: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings) and data collection metadata
 
 -   Data collected by volunteer cat owners from 12 geographically diverse US states
 
--   Initially used to analyze the ecological impacts of outdoor cats
+-   Initially used to analyze the **ecological impacts** of outdoor cats
 
 # Research Question
 
@@ -73,15 +74,15 @@ cat_reference <- read_csv("data/cats_us_reference.csv")
 
 659,770 observations into 62,543 observations! How did I do it?
 
-1.  Remove cats with NA metadata observations (not super useful without metadata) or locations outside the US
+1.  Remove cats with **NA metadata observations** (not super useful without metadata) or locations outside the US
 
-2.  Remove unnecessary variables and tidy up observations (time stamps and comments)
+2.  Remove **unnecessary variables** and tidy up observations (time stamps and comments)
 
-3.  Remove outliers (manually and algorithm marked)
+3.  Remove **outliers** (manually and algorithm marked)
 
 ## This is Getting Messy! Calculating Distance!
 
-1.  Create a function that calculates the distance between two sets of coordinates into a new variable using the Haversine formula
+1.  Create a function that calculates the distance between two sets of coordinates into a new variable using the **Haversine formula**
 
 2.  Create individual datasets for each cat
 
@@ -682,9 +683,9 @@ merged_summaries_by_cat <- merged_summaries_by_cat %>%
 
 # Data Visualizations
 
--   Will eventually make a Shiny app to have user customize which cat and which day they want to visualize
+-   Will eventually make a **Shiny app** to have user customize which cat and which day they want to visualize
 
--   For now, this is the base for what I want the app to produce
+-   For now, these are the basic visualizations for what I want the app to produce
 
 ## Map 1
 
@@ -697,18 +698,20 @@ merged_summaries_by_cat <- merged_summaries_by_cat %>%
 #| echo: true
 #Function
 plot_cat_movement <- function(adjusted_cat_distance, cat_identifier, date) {
+  
   motorcat_cat <- adjusted_cat_distance %>%
     filter(`individual-local-identifier` == cat_identifier) %>%
     filter(Date == date) %>%
-    mutate(Time = as.POSIXct(Time, format = "%H:%M:%S")) %>%
+    mutate(Time = as.POSIXct(Time, format = "%H:%M:%S", tz = "UTC")) %>%  # Convert to POSIXct
     arrange(Time)
   
   # Generate title dynamically
   title <- paste("Location Changes Over Time for", cat_identifier, "on", date)
   
-  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1)) +
+  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1, color = Time)) +
     geom_path() + 
     geom_point() +
+    scale_color_viridis_c() +
     geom_text(aes(label = format(Time, "%H:%M:%S")), hjust = 1.2, vjust = 0) +  # Add time stamps
     labs(x = "Longitude", y = "Latitude", title = title)
 }
@@ -751,8 +754,8 @@ age_summaries <- merged_summaries_by_cat %>%
   summarize(avg_dist_day_by_age = mean(avg_distance_day),
             avg_dist_obs_by_age = mean(mean_distance_obs))
 ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_day_by_age)) +
-  geom_col() +
-  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats Each Day, Grouped by Age")
+  geom_col(color = "#45105b", fill = "#9a94bc") +
+  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats Each Day, \nGrouped by Age")
 ```
 
 ### Comparing Avg Distance per Day
@@ -778,8 +781,8 @@ age_summaries <- merged_summaries_by_cat %>%
   summarize(avg_dist_day_by_age = mean(avg_distance_day),
             avg_dist_obs_by_age = mean(mean_distance_obs))
 ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_obs_by_age)) +
-  geom_col() +
-  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats per 3-Min Cycle, Grouped by Age")
+  geom_col(color = "#45105b", fill = "#9a94bc") +
+  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats per 3-Min Cycle, \nGrouped by Age")
 ```
 
 ### Comparing Avg Distance per Obs. Cycle
@@ -802,26 +805,30 @@ ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_obs_by_age)) +
 
 # Data Analysis
 
--   Cats, for the most part, stay clustered in one area and often return to one specific "hub"
+-   Cats, for the most part, stay **clustered** in one area and often return to one specific **"hub"**
 
-    -   Reasonable assumption that this is their home, and they are emotionally and physically attached to their home and their owner
+    -   Reasonable assumption that this is their home, and they are **emotionally and physically attached** to their home and their owner
 
 # Caveats/Limitations
+
+-   Timestamp labels on travel maps can be hard to read, hopefully fixed with Shiny app
 
 -   Cats don't travel in straight lines
 
     -   Observations calculated every 3 minutes, so the *distance* variable isn't completely accurate to the total distance traveled
     -   3 minutes is a relatively good interval, but cats don't move in a 2D linear fashion and often move back and forth and up and down
 
+-   Not all cats have the same number of days observed
+
 # Further Research
 
--   Observational data cannot be used to draw causal conclusions
+-   Observational data **cannot be used to draw causal conclusions**
 
     -   So not representative of all cat behaviors!
 
--   Future experimental studies with more robust design to see whether age affects a cat's likelihood of moving further distances
+-   Future **experimental** studies with more robust design to see whether age affects a cat's likelihood of moving further distances
 
--   Future psychological studies to see what impacts a cat's movement decisions
+-   Future **psychological** studies to see what impacts a cat's movement decisions
 
 # Citations
 

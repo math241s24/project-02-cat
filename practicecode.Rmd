@@ -22,6 +22,7 @@ library(sf)
 library(tmap)
 library(shiny)
 library(lubridate)
+library(viridis)
 ```
 
 
@@ -648,18 +649,20 @@ ggplot(sparkles_cat, aes(x = `location-long`, y = `location-lat`, group = 1)) +
 ```{r}
 #Function
 plot_cat_movement <- function(adjusted_cat_distance, cat_identifier, date) {
+  
   motorcat_cat <- adjusted_cat_distance %>%
     filter(`individual-local-identifier` == cat_identifier) %>%
     filter(Date == date) %>%
-    mutate(Time = as.POSIXct(Time, format = "%H:%M:%S")) %>%
+    mutate(Time = as.POSIXct(Time, format = "%H:%M:%S", tz = "UTC")) %>%  # Convert to POSIXct
     arrange(Time)
   
   # Generate title dynamically
   title <- paste("Location Changes Over Time for", cat_identifier, "on", date)
   
-  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1)) +
+  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1, color = Time)) +
     geom_path() + 
     geom_point() +
+    scale_color_viridis_c() +
     geom_text(aes(label = format(Time, "%H:%M:%S")), hjust = 1.2, vjust = 0) +  # Add time stamps
     labs(x = "Longitude", y = "Latitude", title = title)
 }
@@ -669,10 +672,18 @@ plot_cat_movement(adjusted_cat_distance, "Motorcat", "2013-08-14")
 plot_cat_movement(adjusted_cat_distance, "Zoey", "2015-01-07")
 plot_cat_movement(adjusted_cat_distance, "Franklin", "2015-02-25")
 
-
 ```
 
 ```{r}
-A
 
+age_summaries <- merged_summaries_by_cat %>%
+  group_by(`animal-life-stage`) %>%
+  summarize(avg_dist_day_by_age = mean(avg_distance_day),
+            avg_dist_obs_by_age = mean(mean_distance_obs))
+ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_day_by_age)) +
+  geom_col(color = "#45105b", fill = "#9a94bc") +
+  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats Each Day, \nGrouped by Age")
+ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_obs_by_age)) +
+  geom_col(color = "#45105b", fill = "#9a94bc") +
+  labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats per 3-Min Cycle, \nGrouped by Age")
 ```

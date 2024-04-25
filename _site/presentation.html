@@ -405,18 +405,18 @@ Team Cat, aka Sydney Stitt
 <section id="so-what-is-a-cat" class="title-slide slide level1 center">
 <h1>So, What is a Cat?</h1>
 
-<img data-src="Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg" class="r-stretch quarto-figure-center"><p class="caption">This is cat, his name is Moony. He is the most spoiled, silly cat out there!</p></section>
+<img data-src="Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg" class="r-stretch quarto-figure-center"><p class="caption">This is cat, his name is <strong>Moony</strong>. He is the most spoiled, silly cat out there!</p></section>
 
 <section id="data" class="title-slide slide level1 center">
 <h1>Data</h1>
 <ul>
 <li><p>Two datasets</p>
 <ul>
-<li><p>cat_us: GPS coordinates &amp; timestamps of 140+ cats from the United States from 2013-2016</p></li>
-<li><p>cat_us_reference: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings) and data collection metadata</p></li>
+<li><p><strong>cat_us</strong>: GPS coordinates &amp; timestamps of 140+ cats from the United States from 2013-2016</p></li>
+<li><p><strong>cat_us_reference</strong>: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings) and data collection metadata</p></li>
 </ul></li>
 <li><p>Data collected by volunteer cat owners from 12 geographically diverse US states</p></li>
-<li><p>Initially used to analyze the ecological impacts of outdoor cats</p></li>
+<li><p>Initially used to analyze the <strong>ecological impacts</strong> of outdoor cats</p></li>
 </ul>
 </section>
 
@@ -433,15 +433,15 @@ Team Cat, aka Sydney Stitt
 <h1>Data Wrangling</h1>
 <p>659,770 observations into 62,543 observations! How did I do it?</p>
 <ol type="1">
-<li><p>Remove cats with NA metadata observations (not super useful without metadata) or locations outside the US</p></li>
-<li><p>Remove unnecessary variables and tidy up observations (time stamps and comments)</p></li>
-<li><p>Remove outliers (manually and algorithm marked)</p></li>
+<li><p>Remove cats with <strong>NA metadata observations</strong> (not super useful without metadata) or locations outside the US</p></li>
+<li><p>Remove <strong>unnecessary variables</strong> and tidy up observations (time stamps and comments)</p></li>
+<li><p>Remove <strong>outliers</strong> (manually and algorithm marked)</p></li>
 </ol>
 </section>
 <section id="this-is-getting-messy-calculating-distance" class="slide level2">
 <h2>This is Getting Messy! Calculating Distance!</h2>
 <ol type="1">
-<li><p>Create a function that calculates the distance between two sets of coordinates into a new variable using the Haversine formula</p></li>
+<li><p>Create a function that calculates the distance between two sets of coordinates into a new variable using the <strong>Haversine formula</strong></p></li>
 <li><p>Create individual datasets for each cat</p></li>
 <li><p>Apply Haversine function to calculate distances for each cat</p></li>
 <li><p>Take the averages of distances per day, per 3 minute observation cycle, per cat, and per age group for comparison</p></li>
@@ -596,8 +596,8 @@ Team Cat, aka Sydney Stitt
 <section id="data-visualizations" class="title-slide slide level1 center">
 <h1>Data Visualizations</h1>
 <ul>
-<li><p>Will eventually make a Shiny app to have user customize which cat and which day they want to visualize</p></li>
-<li><p>For now, this is the base for what I want the app to produce</p></li>
+<li><p>Will eventually make a <strong>Shiny app</strong> to have user customize which cat and which day they want to visualize</p></li>
+<li><p>For now, these are the basic visualizations for what I want the app to produce</p></li>
 </ul>
 </section>
 <section id="map-1" class="slide level2">
@@ -609,24 +609,26 @@ Team Cat, aka Sydney Stitt
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#Function</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>plot_cat_movement <span class="ot">&lt;-</span> <span class="cf">function</span>(adjusted_cat_distance, cat_identifier, date) {</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  motorcat_cat <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">filter</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> cat_identifier) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">filter</span>(Date <span class="sc">==</span> date) <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">as.POSIXct</span>(Time, <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="fu">arrange</span>(Time)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>  </span>
-<span id="cb4-9"><a href="#cb4-9"></a>  <span class="co"># Generate title dynamically</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>  title <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Location Changes Over Time for"</span>, cat_identifier, <span class="st">"on"</span>, date)</span>
-<span id="cb4-11"><a href="#cb4-11"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">ggplot</span>(motorcat_cat, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">location-long</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
-<span id="cb4-14"><a href="#cb4-14"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">format</span>(Time, <span class="st">"%H:%M:%S"</span>)), <span class="at">hjust =</span> <span class="fl">1.2</span>, <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add time stamps</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">title =</span> title)</span>
-<span id="cb4-17"><a href="#cb4-17"></a>}</span>
-<span id="cb4-18"><a href="#cb4-18"></a></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co"># Usage example</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Motorcat"</span>, <span class="st">"2013-08-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  motorcat_cat <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">filter</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> cat_identifier) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="fu">filter</span>(Date <span class="sc">==</span> date) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">as.POSIXct</span>(Time, <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Convert to POSIXct</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">arrange</span>(Time)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>  </span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="co"># Generate title dynamically</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  title <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Location Changes Over Time for"</span>, cat_identifier, <span class="st">"on"</span>, date)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>  </span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="fu">ggplot</span>(motorcat_cat, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">location-long</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">format</span>(Time, <span class="st">"%H:%M:%S"</span>)), <span class="at">hjust =</span> <span class="fl">1.2</span>, <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add time stamps</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">title =</span> title)</span>
+<span id="cb4-19"><a href="#cb4-19"></a>}</span>
+<span id="cb4-20"><a href="#cb4-20"></a></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co"># Usage example</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Motorcat"</span>, <span class="st">"2013-08-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -659,8 +661,8 @@ Team Cat, aka Sydney Stitt
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_dist_day_by_age =</span> <span class="fu">mean</span>(avg_distance_day),</span>
 <span id="cb5-4"><a href="#cb5-4"></a>            <span class="at">avg_dist_obs_by_age =</span> <span class="fu">mean</span>(mean_distance_obs))</span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_day_by_age)) <span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats Each Day, Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"#45105b"</span>, <span class="at">fill =</span> <span class="st">"#9a94bc"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats Each Day, </span><span class="sc">\n</span><span class="st">Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -685,8 +687,8 @@ Team Cat, aka Sydney Stitt
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_dist_day_by_age =</span> <span class="fu">mean</span>(avg_distance_day),</span>
 <span id="cb6-4"><a href="#cb6-4"></a>            <span class="at">avg_dist_obs_by_age =</span> <span class="fu">mean</span>(mean_distance_obs))</span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_obs_by_age)) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats per 3-Min Cycle, Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"#45105b"</span>, <span class="at">fill =</span> <span class="st">"#9a94bc"</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats per 3-Min Cycle, </span><span class="sc">\n</span><span class="st">Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
@@ -716,9 +718,9 @@ Team Cat, aka Sydney Stitt
 <section id="data-analysis-1" class="title-slide slide level1 center">
 <h1>Data Analysis</h1>
 <ul>
-<li><p>Cats, for the most part, stay clustered in one area and often return to one specific “hub”</p>
+<li><p>Cats, for the most part, stay <strong>clustered</strong> in one area and often return to one specific <strong>“hub”</strong></p>
 <ul>
-<li>Reasonable assumption that this is their home, and they are emotionally and physically attached to their home and their owner</li>
+<li>Reasonable assumption that this is their home, and they are <strong>emotionally and physically attached</strong> to their home and their owner</li>
 </ul></li>
 </ul>
 </section>
@@ -726,23 +728,25 @@ Team Cat, aka Sydney Stitt
 <section id="caveatslimitations" class="title-slide slide level1 center">
 <h1>Caveats/Limitations</h1>
 <ul>
+<li><p>Timestamp labels on travel maps can be hard to read, hopefully fixed with Shiny app</p></li>
 <li><p>Cats don’t travel in straight lines</p>
 <ul>
 <li>Observations calculated every 3 minutes, so the <em>distance</em> variable isn’t completely accurate to the total distance traveled</li>
 <li>3 minutes is a relatively good interval, but cats don’t move in a 2D linear fashion and often move back and forth and up and down</li>
 </ul></li>
+<li><p>Not all cats have the same number of days observed</p></li>
 </ul>
 </section>
 
 <section id="further-research" class="title-slide slide level1 center">
 <h1>Further Research</h1>
 <ul>
-<li><p>Observational data cannot be used to draw causal conclusions</p>
+<li><p>Observational data <strong>cannot be used to draw causal conclusions</strong></p>
 <ul>
 <li>So not representative of all cat behaviors!</li>
 </ul></li>
-<li><p>Future experimental studies with more robust design to see whether age affects a cat’s likelihood of moving further distances</p></li>
-<li><p>Future psychological studies to see what impacts a cat’s movement decisions</p></li>
+<li><p>Future <strong>experimental</strong> studies with more robust design to see whether age affects a cat’s likelihood of moving further distances</p></li>
+<li><p>Future <strong>psychological</strong> studies to see what impacts a cat’s movement decisions</p></li>
 </ul>
 </section>
 

@@ -755,7 +755,7 @@ ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_day_by_age)) +
   labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats Each Day, Grouped by Age")
 ```
 
-### Graph: Comparing Avg Distance per Age per Day
+### Comparing Avg Distance per Day
 
 ```{r}
 #| ref.label: fig2
@@ -782,7 +782,7 @@ ggplot(age_summaries, aes(x = `animal-life-stage`, y = avg_dist_obs_by_age)) +
   labs(x = "Age in Years", y = "Average Distance in m", title = "Average Distance Traveled By Cats per 3-Min Cycle, Grouped by Age")
 ```
 
-### Graph: Comparing Avg Distance Per Age per Obs. Cycle
+### Comparing Avg Distance per Obs. Cycle
 
 ```{r}
 #| ref.label: fig3

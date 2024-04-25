@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <meta name="author" content="Team Cat: Sydney Stitt">
+  <meta name="author" content="Team Cat, aka Sydney Stitt">
   <title>Project 2 - The Cat’s Meow: Tracking Outdoor Cat Movement over Time</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -326,24 +391,29 @@
 
 <section id="title-slide" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">The Cat’s Meow: Tracking Outdoor Cat Movement over Time</h1>
-  <p class="subtitle">Project 2</p>
+  <p class="subtitle">Final Project / MATH241 / Spring 2024</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Team Cat: Sydney Stitt 
+Team Cat, aka Sydney Stitt 
 </div>
 </div>
 </div>
 
 </section>
-<section id="topic-data" class="title-slide slide level1 center">
-<h1>Topic &amp; Data</h1>
+<section id="so-what-is-a-cat" class="title-slide slide level1 center">
+<h1>So, What is a Cat?</h1>
+
+<img data-src="Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg" class="r-stretch quarto-figure-center"><p class="caption">This is cat, his name is Moony. He is the most spoiled, silly cat out there!</p></section>
+
+<section id="data" class="title-slide slide level1 center">
+<h1>Data</h1>
 <ul>
 <li><p>Two datasets</p>
 <ul>
 <li><p>cat_us: GPS coordinates &amp; timestamps of 140+ cats from the United States from 2013-2016</p></li>
-<li><p>cat_us_reference: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings)</p></li>
+<li><p>cat_us_reference: metadata on individual cat lifestyles (sex, age, diet, hunting, number of cat siblings) and data collection metadata</p></li>
 </ul></li>
 <li><p>Data collected by volunteer cat owners from 12 geographically diverse US states</p></li>
 <li><p>Initially used to analyze the ecological impacts of outdoor cats</p></li>
@@ -353,41 +423,327 @@ Team Cat: Sydney Stitt
 <section id="research-question" class="title-slide slide level1 center">
 <h1>Research Question</h1>
 <ol type="1">
-<li><p>Do younger cats tend to travel longer distances and spend more time outside than older cats?</p></li>
+<li><p>Do younger cats tend to travel longer distances than older cats?</p></li>
 <li><p>Do cats travel in patterns or “seemingly” randomly (based on environmental stimulus or reactions)?</p></li>
 </ol>
 </section>
 
-<section id="data-wrangling-or-turning-659770-into-81023" class="title-slide slide level1 center">
-<h1>Data Wrangling (or turning 659770 into 81023)</h1>
+<section>
+<section id="data-wrangling" class="title-slide slide level1 center">
+<h1>Data Wrangling</h1>
+<p>659,770 observations into 62,543 observations! How did I do it?</p>
+<ol type="1">
+<li><p>Remove cats with NA metadata observations (not super useful without metadata) or locations outside the US</p></li>
+<li><p>Remove unnecessary variables and tidy up observations (time stamps and comments)</p></li>
+<li><p>Remove outliers (manually and algorithm marked)</p></li>
+</ol>
+</section>
+<section id="this-is-getting-messy-calculating-distance" class="slide level2">
+<h2>This is Getting Messy! Calculating Distance!</h2>
+<ol type="1">
+<li><p>Create a function that calculates the distance between two sets of coordinates into a new variable using the Haversine formula</p></li>
+<li><p>Create individual datasets for each cat</p></li>
+<li><p>Apply Haversine function to calculate distances for each cat</p></li>
+<li><p>Take the averages of distances per day, per 3 minute observation cycle, per cat, and per age group for comparison</p></li>
+</ol>
+</section>
+<section id="coding" class="slide level2">
+<h2>Coding…</h2>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  individual-local-identifier mean_distance_obs avg_distance_day      tag-id
-1                       Ajax2         1500.6036        79891.506    Ajax2Tag
-2                     Anubis2         2026.2678       128120.213  Anubis2Tag
-3                      Asher2        10602.9248        63943.468   Asher2Tag
-4                      Asibo2          112.6145         4848.457   Asibo2Tag
-5                     Atticus        12067.7744       241401.156 Atticus Tag
-  animal-id animal-life-stage animal-reproductive-condition animal-sex
-1     Ajax2                 3                      Neutered          m
-2   Anubis2                 2                      Neutered          m
-3    Asher2                 3                      Neutered          m
-4    Asibo2                 2                      Neutered          m
-5   Atticus                 8                      Neutered          m
-  deployment-id        study-site Date-Deploy-On Time-Deploy-On Date-Deploy-Off
-1         Ajax2 TN, United States     2014-06-21       13:35:40      2014-06-29
-2       Anubis2 NC, United States     2014-06-29       00:05:35      2014-07-04
-3        Asher2 NC, United States     2015-03-17       05:02:50      2015-03-28
-4        Asibo2 NC, United States     2014-06-29       00:22:56      2014-07-04
-5       Atticus NC, United States     2014-12-17       06:01:03      2014-12-19
-  Time-Deploy-Off prey_p_month hunt hrs_indoors n_cats_household
-1        19:22:42            4 TRUE          11                2
-2        10:20:45            4 TRUE           0                2
-3        23:24:45            8 TRUE          11                1
-4        15:34:58            4 TRUE           0                2
-5        05:55:19            1 TRUE          24                3</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#Tidying up the date and time variables in both dataframes</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>cat_movement <span class="ot">&lt;-</span> cat_movement <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(timestamp), </span>
+<span id="cb1-4"><a href="#cb1-4"></a>                       <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5"></a>         <span class="at">Date =</span> <span class="fu">as.Date</span>(timestamp)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">filter</span>(visible) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span>timestamp)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>cat_reference <span class="ot">&lt;-</span> cat_reference <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Date-Deploy-On</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>         <span class="st">`</span><span class="at">Time-Deploy-On</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(<span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>), </span>
+<span id="cb1-11"><a href="#cb1-11"></a>                                   <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>         <span class="st">`</span><span class="at">Date-Deploy-Off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>),</span>
+<span id="cb1-13"><a href="#cb1-13"></a>         <span class="st">`</span><span class="at">Time-Deploy-Off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(<span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>), </span>
+<span id="cb1-14"><a href="#cb1-14"></a>                                    <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>)</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">#ordering data alphabetically by animal id</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>cat_reference <span class="ot">&lt;-</span> cat_reference[<span class="fu">order</span>(cat_reference<span class="sc">$</span><span class="st">`</span><span class="at">animal-id</span><span class="st">`</span>), ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="haversine-distance-function" class="slide level2">
+<h2>Haversine Distance Function</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Custom distance function using Haversine formula to convert coordinates to distance</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>haversine_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(lon1, lat1, lon2, lat2) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  lon1_rad <span class="ot">&lt;-</span> lon1 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  lat1_rad <span class="ot">&lt;-</span> lat1 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  lon2_rad <span class="ot">&lt;-</span> lon2 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  lat2_rad <span class="ot">&lt;-</span> lat2 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="co"># Earth radius in kilometers</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  R <span class="ot">&lt;-</span> <span class="dv">6371</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="co"># Haversine formula</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  dlon <span class="ot">&lt;-</span> lon2_rad <span class="sc">-</span> lon1_rad</span>
+<span id="cb2-11"><a href="#cb2-11"></a>  dlat <span class="ot">&lt;-</span> lat2_rad <span class="sc">-</span> lat1_rad</span>
+<span id="cb2-12"><a href="#cb2-12"></a>  a <span class="ot">&lt;-</span> <span class="fu">sin</span>(dlat<span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">cos</span>(lat1_rad) <span class="sc">*</span> <span class="fu">cos</span>(lat2_rad) <span class="sc">*</span> <span class="fu">sin</span>(dlon<span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  c <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">atan2</span>(<span class="fu">sqrt</span>(a), <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>a))</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  distance <span class="ot">&lt;-</span> R <span class="sc">*</span> c</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="fu">return</span>(distance)</span>
+<span id="cb2-16"><a href="#cb2-16"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co"># Function to calculate distances and convert to meters</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>calculate_distances <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb2-20"><a href="#cb2-20"></a>  distance <span class="ot">&lt;-</span> <span class="fu">haversine_distance</span>(data<span class="sc">$</span><span class="st">`</span><span class="at">location-long</span><span class="st">`</span>[<span class="sc">-</span><span class="fu">nrow</span>(data)], data<span class="sc">$</span><span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>[<span class="sc">-</span><span class="fu">nrow</span>(data)], </span>
+<span id="cb2-21"><a href="#cb2-21"></a>                                  data<span class="sc">$</span><span class="st">`</span><span class="at">location-long</span><span class="st">`</span>[<span class="sc">-</span><span class="dv">1</span>], data<span class="sc">$</span><span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb2-22"><a href="#cb2-22"></a>  distance <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, distance)  <span class="co"># Add NA to match the size of the original data frame</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">distance =</span> distance)</span>
+<span id="cb2-24"><a href="#cb2-24"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb2-25"><a href="#cb2-25"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="more-coding-wrangling-and-tidying-data" class="slide level2">
+<h2>More Coding! Wrangling and Tidying Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#convert distance from Km to m</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>adjusted_cat_distance <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">mutate</span>(<span class="at">distance =</span> distance<span class="sc">*</span><span class="dv">1000</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#Disable scientific notation</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#Creating variables for average distances per 3 minute cycle and per day</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>summaries_by_day <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">filter</span>(distance <span class="sc">&lt;=</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span>, Date) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">summarize</span>(<span class="at">mean_distance =</span> <span class="fu">mean</span>(distance, </span>
+<span id="cb3-11"><a href="#cb3-11"></a>                                 <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>            <span class="at">sum_distance =</span> <span class="fu">sum</span>(distance, </span>
+<span id="cb3-13"><a href="#cb3-13"></a>                               <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#Creating variables for averages for each cat</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>summaries_by_cat <span class="ot">&lt;-</span> summaries_by_day <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>  <span class="fu">summarize</span>(<span class="at">mean_distance_obs =</span> <span class="fu">mean</span>(mean_distance),</span>
+<span id="cb3-19"><a href="#cb3-19"></a>            <span class="at">avg_distance_day =</span> <span class="fu">mean</span>(sum_distance)) </span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a>cat_reference <span class="ot">&lt;-</span> cat_reference <span class="sc">%&gt;%</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Banjo2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Boris2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Rocky"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Striper2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Ziggy"</span>) </span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#Binding the reference cat dataset with their average distances per cycle and per day, removing any cat with no age listed</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(summaries_by_cat, </span>
+<span id="cb3-31"><a href="#cb3-31"></a>                                 cat_reference) </span>
+<span id="cb3-32"><a href="#cb3-32"></a></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#Tidying up the life stage variable by removing "years" in each observations</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" years"</span>, </span>
+<span id="cb3-35"><a href="#cb3-35"></a>                                                    <span class="st">""</span>, </span>
+<span id="cb3-36"><a href="#cb3-36"></a>                                                    merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)</span>
+<span id="cb3-37"><a href="#cb3-37"></a>merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" year"</span>, </span>
+<span id="cb3-38"><a href="#cb3-38"></a>                                                    <span class="st">""</span>, </span>
+<span id="cb3-39"><a href="#cb3-39"></a>                                                    merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)</span>
+<span id="cb3-40"><a href="#cb3-40"></a></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="co">#Tidying up the animal comments variable by separating it into two variables for hunting and prey per month</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(merged_summaries_by_cat, </span>
+<span id="cb3-43"><a href="#cb3-43"></a>                                 <span class="fu">do.call</span>(rbind, </span>
+<span id="cb3-44"><a href="#cb3-44"></a>                                         <span class="fu">strsplit</span>(merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-comments</span><span class="st">`</span>, </span>
+<span id="cb3-45"><a href="#cb3-45"></a>                                                  <span class="st">"; "</span>, </span>
+<span id="cb3-46"><a href="#cb3-46"></a>                                                  <span class="at">fixed =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb3-47"><a href="#cb3-47"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Hunt</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span>,</span>
+<span id="cb3-50"><a href="#cb3-50"></a>         <span class="st">`</span><span class="at">prey_p_month</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2</span><span class="st">`</span>)</span>
+<span id="cb3-51"><a href="#cb3-51"></a>merged_summaries_by_cat<span class="sc">$</span>hunt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"Yes"</span>, </span>
+<span id="cb3-52"><a href="#cb3-52"></a>                                             merged_summaries_by_cat<span class="sc">$</span>Hunt), </span>
+<span id="cb3-53"><a href="#cb3-53"></a>                                       <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb3-54"><a href="#cb3-54"></a>merged_summaries_by_cat<span class="sc">$</span>prey_p_month <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"prey_p_month: "</span>, </span>
+<span id="cb3-55"><a href="#cb3-55"></a>                                                        <span class="st">""</span>, </span>
+<span id="cb3-56"><a href="#cb3-56"></a>                                                        merged_summaries_by_cat<span class="sc">$</span>prey_p_month))</span>
+<span id="cb3-57"><a href="#cb3-57"></a></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="co">#Tidying up the manipulation comments variable by separating it into two variables for hours spent indoors and number of cats in the household </span></span>
+<span id="cb3-59"><a href="#cb3-59"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(merged_summaries_by_cat, <span class="fu">do.call</span>(rbind, <span class="fu">strsplit</span>(<span class="fu">trimws</span>(merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">manipulation-comments</span><span class="st">`</span>), <span class="st">";"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb3-60"><a href="#cb3-60"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">hrs_indoors</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span>,</span>
+<span id="cb3-63"><a href="#cb3-63"></a>         <span class="st">`</span><span class="at">n_cats_household</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2</span><span class="st">`</span>)</span>
+<span id="cb3-64"><a href="#cb3-64"></a>merged_summaries_by_cat<span class="sc">$</span>hrs_indoors <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"hrs_indoors: "</span>, </span>
+<span id="cb3-65"><a href="#cb3-65"></a>                                                       <span class="st">""</span>, </span>
+<span id="cb3-66"><a href="#cb3-66"></a>                                                       merged_summaries_by_cat<span class="sc">$</span>hrs_indoors))</span>
+<span id="cb3-67"><a href="#cb3-67"></a>merged_summaries_by_cat<span class="sc">$</span>n_cats_household <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"n_cats: "</span>, </span>
+<span id="cb3-68"><a href="#cb3-68"></a>                                                            <span class="st">""</span>, </span>
+<span id="cb3-69"><a href="#cb3-69"></a>                                                            merged_summaries_by_cat<span class="sc">$</span>n_cats_household))</span>
+<span id="cb3-70"><a href="#cb3-70"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>))</span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="co">#Getting rid of unnecessary variables and observations outside the United States</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">animal-comments</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">manipulation-comments</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Hunt</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-77"><a href="#cb3-77"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">animal-taxon</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">attachment-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">data-processing-software</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deployment-end-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">duty-cycle</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">manipulation-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-83"><a href="#cb3-83"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-manufacturer-name</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-mass</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-model</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-readout-method</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">study-site</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Denmark"</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">study-site</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Newfoundland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="data-visualizations" class="title-slide slide level1 center">
+<h1>Data Visualizations</h1>
+<ul>
+<li><p>Will eventually make a Shiny app to have user customize which cat and which day they want to visualize</p></li>
+<li><p>For now, this is the base for what I want the app to produce</p></li>
+</ul>
+</section>
+<section id="map-1" class="slide level2">
+<h2>Map 1</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Function Code</a></li><li><a href="#tabset-1-2">Graph Using the Function</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#Function</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>plot_cat_movement <span class="ot">&lt;-</span> <span class="cf">function</span>(adjusted_cat_distance, cat_identifier, date) {</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  motorcat_cat <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">filter</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> cat_identifier) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">filter</span>(Date <span class="sc">==</span> date) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">as.POSIXct</span>(Time, <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="fu">arrange</span>(Time)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="co"># Generate title dynamically</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  title <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Location Changes Over Time for"</span>, cat_identifier, <span class="st">"on"</span>, date)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">ggplot</span>(motorcat_cat, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">location-long</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">format</span>(Time, <span class="st">"%H:%M:%S"</span>)), <span class="at">hjust =</span> <span class="fl">1.2</span>, <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add time stamps</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">title =</span> title)</span>
+<span id="cb4-17"><a href="#cb4-17"></a>}</span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co"># Usage example</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Motorcat"</span>, <span class="st">"2013-08-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="map-2" class="slide level2">
+<h2>Map 2</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="map-3" class="slide level2">
+<h2>Map 3</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="graph-1" class="slide level2">
+<h2>Graph 1</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Graph: Comparing Avg Distance per Age per Day</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>age_summaries <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_dist_day_by_age =</span> <span class="fu">mean</span>(avg_distance_day),</span>
+<span id="cb5-4"><a href="#cb5-4"></a>            <span class="at">avg_dist_obs_by_age =</span> <span class="fu">mean</span>(mean_distance_obs))</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_day_by_age)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats Each Day, Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="graph-2" class="slide level2">
+<h2>Graph 2</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Graph: Comparing Avg Distance Per Age per Obs. Cycle</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>age_summaries <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_dist_day_by_age =</span> <span class="fu">mean</span>(avg_distance_day),</span>
+<span id="cb6-4"><a href="#cb6-4"></a>            <span class="at">avg_dist_obs_by_age =</span> <span class="fu">mean</span>(mean_distance_obs))</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_obs_by_age)) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats per 3-Min Cycle, Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section id="data-analysis" class="title-slide slide level1 center">
+<h1>Data Analysis</h1>
+<ul>
+<li><p>Age is a strong factor in a cat’s ability to travel distances per day</p>
+<ul>
+<li>Cats aged 10-15 in this dataset travel further than cats younger than 10</li>
+</ul></li>
+<li><p>Age is not an strong factor in a cat’s ability to travel distances per 3 minute cycle</p>
+<ul>
+<li>Younger cats travel, on average, slightly further distances</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="data-analysis-1" class="title-slide slide level1 center">
+<h1>Data Analysis</h1>
+<ul>
+<li><p>Cats, for the most part, stay clustered in one area and often return to one specific “hub”</p>
+<ul>
+<li>Reasonable assumption that this is their home, and they are emotionally and physically attached to their home and their owner</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="caveatslimitations" class="title-slide slide level1 center">
+<h1>Caveats/Limitations</h1>
+<ul>
+<li><p>Cats don’t travel in straight lines</p>
+<ul>
+<li>Observations calculated every 3 minutes, so the <em>distance</em> variable isn’t completely accurate to the total distance traveled</li>
+<li>3 minutes is a relatively good interval, but cats don’t move in a 2D linear fashion and often move back and forth and up and down</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="further-research" class="title-slide slide level1 center">
+<h1>Further Research</h1>
+<ul>
+<li><p>Observational data cannot be used to draw causal conclusions</p>
+<ul>
+<li>So not representative of all cat behaviors!</li>
+</ul></li>
+<li><p>Future experimental studies with more robust design to see whether age affects a cat’s likelihood of moving further distances</p></li>
+<li><p>Future psychological studies to see what impacts a cat’s movement decisions</p></li>
+</ul>
 </section>
 
 <section id="citations" class="title-slide slide level1 center">
@@ -395,8 +751,13 @@ Team Cat: Sydney Stitt
 <ul>
 <li>Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation.&nbsp;<a href="http://dx.doi.org/10.1111/acv.12563">doi:10.1111/acv.12563</a></li>
 </ul>
+</section>
 
-<div class="footer footer-default">
+<section id="thank-you-for-listening-any-questions" class="title-slide slide level1 center">
+<h1>Thank you for listening! Any questions?</h1>
+
+
+<img data-src="Images/IMG_1625.jpg" class="r-stretch quarto-figure-center"><p class="caption">This is also a cat! Her name is Cali.</p><div class="footer footer-default">
 
 </div>
 </section>

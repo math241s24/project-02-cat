@@ -1,7 +1,8 @@
 {
-  "hash": "14302d535e683e425bd69799b22e98a7",
+  "hash": "c23c037699ed943bf2079aa6821cdfaa",
   "result": {
-    "markdown": "---\ntitle: \"project-02\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"The Cat's Meow: Tracking Outdoor Cat Movement over Time\"\nsubtitle: \"Final Project / MATH241 / Spring 2024\"\nauthor: \"Team Cat, aka Sydney Stitt\"\nformat: html\neditor: visual\nexecute:\n  echo: false\n  warning: false\n  message: false\n---\n\n\n## Abstract\n\n## Introduction\n\n# \n\n\n::: {.cell}\n\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

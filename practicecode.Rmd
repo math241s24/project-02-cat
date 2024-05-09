@@ -23,6 +23,7 @@ library(tmap)
 library(shiny)
 library(lubridate)
 library(viridis)
+library(scales)
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Spatial and Temporal Interactive App of Cat Movement"
+title: "The Cat's Meow: Tracking Outdoor Cat Movement over Time"
 format: html
 editor: visual
 ---

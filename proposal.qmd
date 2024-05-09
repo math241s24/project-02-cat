@@ -1,6 +1,6 @@
 ---
-title: "Project 2: Spatial and Temporal Interactive App of Cat Movement"
-subtitle: "Proposal"
+title: "The Cat's Meow: Tracking Outdoor Cat Movement over Time"
+subtitle: "Final Project Proposal"
 authors: "Sydney Stitt"
 format: html
 editor: visual
@@ -79,7 +79,7 @@ The repository is organized by the following folders and files
 
     -   `f/data/*cat_reference.csv`: Cat reference data in csv format
 
-    -   `f``/data/README.md`: Metadata about the datasets
+    -   ``` f``/data/README.md ```: Metadata about the datasets
 
 -   `index.qmd`: The project write-up
 
@@ -99,14 +99,12 @@ The repository is organized by the following folders and files
 
 -   `practice.code.Rmd`: Practice code in R Markdown format for data wrangling and experimenting with data visualizations
 
-```{=html}
 <!-- -->
-```
+
 -   `styles.css`: File for managing aesthetic/stylistic choices on the website
 
-```{=html}
 <!-- -->
-```
+
 -   `/Images/*`: Folder for images used in presentation
 
     -   `f/Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg`: Image of my cat Moony

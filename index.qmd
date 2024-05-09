@@ -1,7 +1,7 @@
 ---
-title: "Spatial and Temporal Interactive App of Cat Movement"
-subtitle: "Project 2"
-author: "Sydney Stitt"
+title: "The Cat's Meow: Tracking Outdoor Cat Movement over Time"
+subtitle: "Final Project / MATH241 / Spring 2024"
+author: "Team Cat, aka Sydney Stitt"
 format: html
 editor: visual
 execute:
@@ -13,3 +13,13 @@ execute:
 ## Abstract
 
 ## Introduction
+
+-   Introduction: The introduction provides a clear explanation of the question and the dataset used to answer the question, including a description of all relevant variables in the dataset. (3 points)
+
+-   Justification of approach: The chosen approach and visualizations are clearly explained and justified. (3 points)
+
+-   Code: Code is correct, easy to read, properly formatted, and properly documented. (10 points)
+
+-   Visualization: The visualizations are appropriate, easy to read, and properly labeled. (10 points)
+
+-   Discussion: Discussion of results is clear and correct, and it has some depth without begin excessively long. (4 points)

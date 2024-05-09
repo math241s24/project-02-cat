@@ -95,6 +95,8 @@ The repository is organized by the following folders and files
 
     -   `f/catsmeow/app.R`: The code for the Shiny app
 
+    -   `f/catsmeow/README.md`: Metadata about the Shiny app
+
 -   `practice.code.Rmd`: Practice code in R Markdown format for data wrangling and experimenting with data visualizations
 
 ```{=html}
@@ -110,3 +112,5 @@ The repository is organized by the following folders and files
     -   `f/Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg`: Image of my cat Moony
 
     -   `f/Images/IMG_1625.jpg`: Image of my cat Cali
+
+    -   `f/Images/README.md`: Metadata about the images

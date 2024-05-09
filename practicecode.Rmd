@@ -632,7 +632,7 @@ merged_summaries_by_cat <- merged_summaries_by_cat %>%
 sparkles_cat <- adjusted_cat_distance %>%
   filter(`individual-local-identifier` == "Sparkles") %>%
   filter(Date == "2016-03-29") %>%
-  mutate(Time = as_hms(Time))  # Convert time to hms format
+  mutate(Time = hms(Time))  # Convert time to hms format
 
 # Ensure data is sorted by time
 sparkles_cat <- sparkles_cat[order(sparkles_cat$Time), ]
@@ -657,15 +657,21 @@ plot_cat_movement <- function(adjusted_cat_distance, cat_identifier, date) {
     arrange(Time)
   
   # Generate title dynamically
-  title <- paste("Location Changes Over Time for", cat_identifier, "on", date)
+title <- paste("Location Changes Over Time for", cat_identifier, "on", date)
   
-  ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1, color = Time)) +
-    geom_path() + 
-    geom_point() +
-    scale_color_viridis_c() +
-    geom_text(aes(label = format(Time, "%H:%M:%S")), hjust = 1.2, vjust = 0) +  # Add time stamps
-    labs(x = "Longitude", y = "Latitude", title = title)
+ggplot(motorcat_cat, aes(x = `location-long`, y = `location-lat`, group = 1, color = Time)) +
+  geom_path() + 
+  geom_point() +
+  labs(x = "Longitude", y = "Latitude", title = title) +
+  scale_color_datetime(
+      name = "Time",
+      labels = date_format("%H:%M:%S"),  # Format labels as HH:MM:SS
+      breaks = date_breaks("2 hours"),   # Specify breaks for the time scale
+      limits = range(motorcat_cat$Time) # Set limits based on the range of Time
+    ) 
 }
+
+
 
 # Usage example
 plot_cat_movement(adjusted_cat_distance, "Motorcat", "2013-08-14")

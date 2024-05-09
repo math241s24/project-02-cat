@@ -79,12 +79,34 @@ The repository is organized by the following folders and files
 
     -   `f/data/*cat_reference.csv`: Cat reference data in csv format
 
-    -   `/data/README.md`: Metadata about the datasets (to be edited after data wrangling)
+    -   `f``/data/README.md`: Metadata about the datasets
 
--   `index.qmd`: The project write-up (to be completed)
+-   `index.qmd`: The project write-up
 
--   `proposal.qmd`: The project proposal (to be revised after peer feedback)
+-   `about.qmd`: Basic information about the project
 
--   `presentation.qmd`: The project presentation (to be completed)
+-   `proposal.qmd`: The project proposal
+
+-   `presentation.qmd`: The project presentation, as given to Reed College's Data Science course
 
 -   `_quarto.yml`: Setup file for project website
+
+-   `/catsmeow/*`: Folder for interactive Shiny app
+
+    -   `f/catsmeow/app.R`: The code for the Shiny app
+
+-   `practice.code.Rmd`: Practice code in R Markdown format for data wrangling and experimenting with data visualizations
+
+```{=html}
+<!-- -->
+```
+-   `styles.css`: File for managing aesthetic/stylistic choices on the website
+
+```{=html}
+<!-- -->
+```
+-   `/Images/*`: Folder for images used in presentation
+
+    -   `f/Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg`: Image of my cat Moony
+
+    -   `f/Images/IMG_1625.jpg`: Image of my cat Cali

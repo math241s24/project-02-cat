@@ -841,7 +841,7 @@ By analyzing cat movement, my project provides valuable insights to what motivat
 
 Kays R, Dunn RR, Parsons AW, Mcdonald B, Perkins T, Powers S, Shell L, McDonald JL, Cole H, Kikillus H, Woods L, Tindle H, Roetman P (2020) The small home ranges and large local ecological impacts of pet cats. Animal Conservation. [doi:10.1111/acv.12563](http://dx.doi.org/10.1111/acv.12563)
 
-![This is cat, his name is **Moony**. He is the most spoiled, silly cat out there! He inspired me to look into data collected about cats, because I love him very much, and his behavior is very strange and needs explaining.](Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg){alt="This is cat, his name is Moony. He is the most spoiled, silly cat out there!" fig-align="center"}
+![This is cat, his name is Moony. He is the most spoiled, silly cat out there!](Images/914C34C0-E533-4D61-80B9-1A3BD8208928.jpg){fig-align="center"}
 
 ## Acknowledgements
 

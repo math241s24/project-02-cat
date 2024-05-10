@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sydney Stitt">
+
+<title>Project 2 - Practice Code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Project 2</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./proposal.html"> 
+<span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentation.html"> 
+<span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/math241s24/project-02"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Practice Code</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sydney Stitt </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Put all necessary libraries here</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pulling data from csv files</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cat_movement <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cats_us.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cat_reference <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cats_us_reference.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Tidying up the date and time variables in both dataframes</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cat_movement <span class="ot">&lt;-</span> cat_movement <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(timestamp), </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Date =</span> <span class="fu">as.Date</span>(timestamp)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(visible) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span>timestamp)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>cat_reference <span class="ot">&lt;-</span> cat_reference <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Date-Deploy-On</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Time-Deploy-On</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(<span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>), </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Date-Deploy-Off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Time-Deploy-Off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(<span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>), </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deploy-off-date</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deploy-on-date</span><span class="st">`</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#ordering data alphabetically by animal id</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>cat_reference <span class="ot">&lt;-</span> cat_reference[<span class="fu">order</span>(cat_reference<span class="sc">$</span><span class="st">`</span><span class="at">animal-id</span><span class="st">`</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Separating the movement dataset by cat</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>filter_individual <span class="ot">&lt;-</span> <span class="cf">function</span>(data, identifier) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  filtered_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data, <span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> identifier)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(filtered_data)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Ajax2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Ajax2"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Anubis <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Anubis2"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>Asher2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Asher2"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Asibo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Asibo2"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Atticus <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Atticus"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Aya2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Aya2"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>BabyKitty <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Baby Kitty 2"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Banjo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Banjo2"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Bean2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Bean2"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>Beatle2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Beatle2"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>Bela2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Bela2"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>Bella2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Bella2"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>Beluga <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Beluga"</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>Benny <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Benny"</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>BillyWhiskers <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Billy Whiskers2"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Bongo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Bongo2"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>BooBooKitty <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"BooBooKitty"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>Boris2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Boris2"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Bumbles2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Bumbles2"</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>CaptainAmerica <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Captain America 2"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>CatMarshall <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Cat Marshall"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>CatnissEverdeen <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Catniss Everdeen"</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>Cayden2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Cayden2"</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>Cedar2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Cedar2"</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Chester2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Chester2"</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>Climber2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Climber2"</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>Coal <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Coal"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>Conan <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Conan"</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>Diamond2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Diamond2"</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>DonCarlos <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Don Carlos2"</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>DonaldFluffypants <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Donald Fluffypants"</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>Douglas <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Douglas"</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>Elle <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Elle"</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>Emmy2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Emmy2"</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>FenimoreCooper <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Fenimore Cooper2"</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>Fiona2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Fiona2"</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>Fletcher2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Fletcher2"</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>Frank <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Frank"</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>Franklin <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Franklin"</span>)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>George2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"George2"</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>Gianni2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Gianni2"</span>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>Goliath2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Goliath2"</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>Gracie <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Gracie"</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>GracieL2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Gracie L2"</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>Hailey2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Hailey2"</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>Harley2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Harley2"</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>Hemingway <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Hemingway"</span>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>Herman2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Herman2"</span>)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>Hershey <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Hershey"</span>)</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>Jack2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jack2"</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>Jams2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jams2"</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>Jello2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jello2"</span>)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>Jetpack <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jetpack"</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>Jingles2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jingles2"</span>)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>Jitterbug2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Jitterbug2"</span>)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>Joey <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Joey"</span>)</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>Junior2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Junior2"</span>)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>Justice <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Justice"</span>)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>Kagin2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Kagin2"</span>)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>KatnissEverdeen <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Katniss Everdeen"</span>)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>Lacey <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Lacey"</span>)</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>Ladybird2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Ladybird2"</span>)</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>Leopard2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Leopard2"</span>)</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>Lester <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Lester"</span>)</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>Little2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Little2"</span>)</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>LouieTag <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"LouieTag"</span>)</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>Lucky2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Lucky2"</span>)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>Luna2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Luna2"</span>)</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>Lupe2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Lupe2"</span>)</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>Maddie2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Maddie2"</span>)</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>Maisey2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Maisey2"</span>)</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>Marco2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Marco2"</span>)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>MarthaWayne2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Martha Wayne2"</span>)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>Merrie2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Merrie2"</span>)</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>Mia2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Mia2"</span>)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>Milo <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Milo"</span>)</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>Mindy2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Mindy2"</span>)</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>MinnieH <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Minnie H"</span>)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>Misty <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Misty"</span>)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>Misu2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Misu2"</span>)</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>Motorcat <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Motorcat"</span>)</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>MrLucky <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Mr.Lucky"</span>)</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>Natasha2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Natasha2"</span>)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>NattyBumpo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"NattyBumpo2"</span>)</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>Nia <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Nia"</span>)</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>Nikki2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Nikki2"</span>)</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>Nola2Tag <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Nola2Tag"</span>)</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>Oatmeal <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Oatmeal"</span>)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>Oliver2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Oliver2"</span>)</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>Orange <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Orange"</span>)</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>Oreo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Oreo2"</span>)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>OscarJ <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Oscar J"</span>)</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>OscarL <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Oscar L"</span>)</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>OscarN <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"OscarN"</span>)</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>Parker <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Parker"</span>)</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>Peanut <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Peanut"</span>)</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>PeanutR <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"PeanutR"</span>)</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>Penelope2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Penelope2"</span>)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>Picchu <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Picchu"</span>)</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>Pickles2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Pickles2"</span>)</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>Piper2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Piper2"</span>)</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>Poly <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Poly"</span>)</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>Pringle <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Pringle"</span>)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>PsychoKitty <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Psycho Kitty2"</span>)</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>PumpkinKane <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Pumpkin Kane"</span>)</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>Pumpkin2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Pumpkin2"</span>)</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>Purrcy2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Purrcy2"</span>)</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>Reggie2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Reggie2"</span>)</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>Rocky <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Motorcat"</span>)</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>Roukus2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Roukus2"</span>)</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>Russel2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Russel2"</span>)</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>Sandstorm2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sandstorm2"</span>)</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>Sasquatch2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sasquatch2"</span>)</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>Schubie2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Schubie2"</span>)</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>Selkie2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Selkie2"</span>)</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>Senor2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Senor2"</span>)</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>Seth2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Seth2"</span>)</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>Shadow2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Shadow2"</span>)</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>Shakespeare2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Shakespeare2"</span>)</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>Sheldon <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sheldon"</span>)</span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>Smattie <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Smattie"</span>)</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>Smokey2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Smokey2"</span>)</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>Snickerdoodle2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Snickerdoodle2"</span>)</span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>Solo2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Solo2"</span>)</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>Sparkles <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sparkles"</span>)</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>Spencer2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Spencer2"</span>)</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>Spike <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Spike"</span>)</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>Starbuck2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Starbuck2"</span>)</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>Striper2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Striper2"</span>)</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>Sunny2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sunny2"</span>)</span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>Survivor2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Survivor2"</span>)</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>Sweetpea <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sweetpea"</span>)</span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>Sylvester <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Sylvester"</span>)</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>Tabasco <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tabasco"</span>)</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>Tallulah2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tallulah2"</span>)</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>Tara2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tara2"</span>)</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>Tex2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tex2"</span>)</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>Tiger2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tiger2"</span>)</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>Tonka2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Tonka2"</span>)</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>Turtle2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Turtle2"</span>)</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>VioletMae2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Violet Mae2"</span>)</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>Willy2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Willy2"</span>)</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>Zelda2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Zelda2"</span>)</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>Ziggy <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Motorcat"</span>)</span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>Zoey <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Zoey"</span>)</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>Zorro2 <span class="ot">&lt;-</span> <span class="fu">filter_individual</span>(cat_movement, <span class="st">"Zorro2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom distance function using Haversine formula to convert coordinates to distance</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>haversine_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(lon1, lat1, lon2, lat2) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  lon1_rad <span class="ot">&lt;-</span> lon1 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  lat1_rad <span class="ot">&lt;-</span> lat1 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  lon2_rad <span class="ot">&lt;-</span> lon2 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  lat2_rad <span class="ot">&lt;-</span> lat2 <span class="sc">*</span> pi <span class="sc">/</span> <span class="dv">180</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Earth radius in kilometers</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  R <span class="ot">&lt;-</span> <span class="dv">6371</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Haversine formula</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  dlon <span class="ot">&lt;-</span> lon2_rad <span class="sc">-</span> lon1_rad</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  dlat <span class="ot">&lt;-</span> lat2_rad <span class="sc">-</span> lat1_rad</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">sin</span>(dlat<span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">cos</span>(lat1_rad) <span class="sc">*</span> <span class="fu">cos</span>(lat2_rad) <span class="sc">*</span> <span class="fu">sin</span>(dlon<span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">atan2</span>(<span class="fu">sqrt</span>(a), <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>a))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  distance <span class="ot">&lt;-</span> R <span class="sc">*</span> c</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(distance)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate distances and convert to meters</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>calculate_distances <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  distance <span class="ot">&lt;-</span> <span class="fu">haversine_distance</span>(data<span class="sc">$</span><span class="st">`</span><span class="at">location-long</span><span class="st">`</span>[<span class="sc">-</span><span class="fu">nrow</span>(data)], data<span class="sc">$</span><span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>[<span class="sc">-</span><span class="fu">nrow</span>(data)], </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                                  data<span class="sc">$</span><span class="st">`</span><span class="at">location-long</span><span class="st">`</span>[<span class="sc">-</span><span class="dv">1</span>], data<span class="sc">$</span><span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  distance <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, distance)  <span class="co"># Add NA to match the size of the original data frame</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">distance =</span> distance)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying the function to your data frame</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Ajax2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Ajax2)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Anubis <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Anubis)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Asher2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Asher2)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Asibo2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Asibo2)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Atticus <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Atticus)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Aya2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Aya2)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>BabyKitty <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(BabyKitty)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Bean2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Bean2)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>Beatle2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Beatle2)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>Bela2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Bela2)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Bella2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Bella2)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>Beluga <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Beluga)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>Benny <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Benny)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>BillyWhiskers <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(BillyWhiskers)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>Bongo2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Bongo2)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>BooBooKitty <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(BooBooKitty)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>Bumbles2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Bumbles2)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>CaptainAmerica <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(CaptainAmerica)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>CatMarshall <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(CatMarshall)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>CatnissEverdeen <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(CatnissEverdeen)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>Cayden2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Cayden2)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>Cedar2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Cedar2)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>Chester2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Chester2)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>Climber2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Climber2)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>Coal <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Coal)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>Conan <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Conan)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>Diamond2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Diamond2)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>DonCarlos <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(DonCarlos)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>DonaldFluffypants <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(DonaldFluffypants)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>Douglas <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Douglas)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>Elle <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Elle)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>Emmy2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Emmy2)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>FenimoreCooper <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(FenimoreCooper)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Fiona2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Fiona2)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>Fletcher2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Fletcher2)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>Frank <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Frank)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>Franklin <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Franklin)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>George2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(George2)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>Gianni2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Gianni2)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>Goliath2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Goliath2)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>Gracie <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Gracie)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>GracieL2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(GracieL2)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>Hailey2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Hailey2)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>Harley2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Harley2)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>Hemingway <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Hemingway)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>Herman2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Herman2)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>Hershey <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Hershey)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>Jack2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jack2)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>Jams2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jams2)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>Jello2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jello2)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>Jetpack <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jetpack)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>Jingles2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jingles2)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>Jitterbug2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Jitterbug2)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>Joey <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Joey)</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>Junior2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Junior2)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>Justice <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Justice)</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>Kagin2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Kagin2)</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>KatnissEverdeen <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(KatnissEverdeen)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>Lacey <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Lacey)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>Ladybird2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Ladybird2)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>Leopard2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Leopard2)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>Lester <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Lester)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>Little2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Little2)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>LouieTag <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(LouieTag)</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>Lucky2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Lucky2)</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>Luna2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Luna2)</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>Lupe2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Lupe2)</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>Maddie2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Maddie2)</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>Maisey2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Maisey2)</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>Marco2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Marco2)</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>MarthaWayne2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(MarthaWayne2)</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>Merrie2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Merrie2)</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>Mia2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Mia2)</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>Milo <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Milo)</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>Mindy2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Mindy2)</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>MinnieH <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(MinnieH)</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>Misty <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Misty)</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>Misu2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Misu2)</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>Motorcat <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Motorcat)</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>MrLucky <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(MrLucky)</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>Natasha2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Natasha2)</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>NattyBumpo2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(NattyBumpo2)</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>Nia <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Nia)</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>Nikki2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Nikki2)</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>Nola2Tag <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Nola2Tag)</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>Oatmeal <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Oatmeal)</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>Oliver2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Oliver2)</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>Orange <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Orange)</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>Oreo2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Oreo2)</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>OscarJ <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(OscarJ)</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>OscarL <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(OscarL)</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>OscarN <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(OscarN)</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>Parker <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Parker)</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>Peanut <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Peanut)</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>PeanutR <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(PeanutR)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>Penelope2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Penelope2)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>Picchu <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Picchu)</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>Pickles2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Pickles2)</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>Piper2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Piper2)</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>Poly <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Poly)</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>Pringle <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Pringle)</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>PsychoKitty <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(PsychoKitty)</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>PumpkinKane <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(PumpkinKane)</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>Pumpkin2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Pumpkin2)</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>Purrcy2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Purrcy2)</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>Reggie2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Reggie2)</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>Rocky <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Rocky)</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>Roukus2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Roukus2)</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>Russel2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Russel2)</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>Sandstorm2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sandstorm2)</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>Sasquatch2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sasquatch2)</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>Schubie2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Schubie2)</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>Selkie2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Selkie2)</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>Senor2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Senor2)</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>Seth2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Seth2)</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>Shadow2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Shadow2)</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>Shakespeare2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Shakespeare2)</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>Sheldon <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sheldon)</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>Smattie <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Smattie)</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>Smokey2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Smokey2)</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>Snickerdoodle2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Snickerdoodle2)</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>Solo2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Solo2)</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>Sparkles <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sparkles)</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>Spencer2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Spencer2)</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>Spike <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Spike)</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>Starbuck2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Starbuck2)</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>Striper2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Striper2)</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>Sunny2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sunny2)</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>Survivor2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Survivor2)</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>Sweetpea <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sweetpea)</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>Sylvester <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Sylvester)</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>Tabasco <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tabasco)</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>Tallulah2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tallulah2)</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>Tara2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tara2)</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>Tex2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tex2)</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>Tiger2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tiger2)</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>Tonka2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Tonka2)</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>Turtle2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Turtle2)</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>VioletMae2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(VioletMae2)</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>Willy2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Willy2)</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>Zelda2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Zelda2)</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>Ziggy <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Ziggy)</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>Zoey <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Zoey)</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>Zorro2 <span class="ot">&lt;-</span> <span class="fu">calculate_distances</span>(Zorro2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Joining all datasets together</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>adjusted_cat_distance <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Ajax2, Anubis) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Asher2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Asibo2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Atticus) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Aya2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(BabyKitty) <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Bean2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Beatle2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Bela2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Bella2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Beluga) <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Benny) <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(BillyWhiskers) <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Bongo2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(BooBooKitty) <span class="sc">%&gt;%</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Bumbles2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(CaptainAmerica) <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(CatMarshall) <span class="sc">%&gt;%</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(CatnissEverdeen) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Cayden2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Cedar2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Chester2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Climber2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Coal) <span class="sc">%&gt;%</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Conan) <span class="sc">%&gt;%</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Diamond2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(DonCarlos) <span class="sc">%&gt;%</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(DonaldFluffypants) <span class="sc">%&gt;%</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Douglas) <span class="sc">%&gt;%</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Elle) <span class="sc">%&gt;%</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Emmy2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(FenimoreCooper) <span class="sc">%&gt;%</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Fiona2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Fletcher2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Frank) <span class="sc">%&gt;%</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Franklin) <span class="sc">%&gt;%</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(George2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Gianni2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Goliath2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Gracie) <span class="sc">%&gt;%</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(GracieL2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Hailey2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Harley2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Hemingway) <span class="sc">%&gt;%</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Herman2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Hershey) <span class="sc">%&gt;%</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jack2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jams2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jello2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jetpack) <span class="sc">%&gt;%</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jingles2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Jitterbug2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Joey) <span class="sc">%&gt;%</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Junior2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Justice) <span class="sc">%&gt;%</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Kagin2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(KatnissEverdeen) <span class="sc">%&gt;%</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Lacey) <span class="sc">%&gt;%</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Ladybird2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Leopard2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Lester) <span class="sc">%&gt;%</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Little2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(LouieTag) <span class="sc">%&gt;%</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Lucky2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Luna2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Lupe2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Maddie2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Maisey2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Marco2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(MarthaWayne2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Merrie2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Mia2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Milo) <span class="sc">%&gt;%</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Mindy2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(MinnieH) <span class="sc">%&gt;%</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Misty) <span class="sc">%&gt;%</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Misu2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Motorcat) <span class="sc">%&gt;%</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(MrLucky) <span class="sc">%&gt;%</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Natasha2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(NattyBumpo2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Nia) <span class="sc">%&gt;%</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Nikki2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Nola2Tag) <span class="sc">%&gt;%</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Oatmeal) <span class="sc">%&gt;%</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Oliver2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Orange) <span class="sc">%&gt;%</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Oreo2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(OscarJ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(OscarL) <span class="sc">%&gt;%</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(OscarN) <span class="sc">%&gt;%</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Parker) <span class="sc">%&gt;%</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Peanut) <span class="sc">%&gt;%</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(PeanutR) <span class="sc">%&gt;%</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Penelope2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Picchu) <span class="sc">%&gt;%</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Pickles2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Piper2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Poly) <span class="sc">%&gt;%</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Pringle) <span class="sc">%&gt;%</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(PsychoKitty) <span class="sc">%&gt;%</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(PumpkinKane) <span class="sc">%&gt;%</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Pumpkin2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Purrcy2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Reggie2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Roukus2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Russel2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sandstorm2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sasquatch2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Schubie2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Selkie2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Senor2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Seth2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Shadow2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Shakespeare2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sheldon) <span class="sc">%&gt;%</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Smattie) <span class="sc">%&gt;%</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Smokey2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Snickerdoodle2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Solo2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sparkles) <span class="sc">%&gt;%</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Spencer2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Spike) <span class="sc">%&gt;%</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Starbuck2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sunny2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Survivor2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sweetpea) <span class="sc">%&gt;%</span></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Sylvester) <span class="sc">%&gt;%</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tabasco) <span class="sc">%&gt;%</span></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tallulah2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tara2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tex2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tiger2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Tonka2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Turtle2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(VioletMae2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Willy2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Zelda2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Zoey) <span class="sc">%&gt;%</span></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">full_join</span>(Zorro2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#convert distance from Km to m</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>adjusted_cat_distance <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance =</span> distance<span class="sc">*</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Disable scientific notation</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating variables for average distances per 3 minute cycle and per day</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>summaries_by_day <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance <span class="sc">&lt;=</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span>, Date) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_distance =</span> <span class="fu">mean</span>(distance, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum_distance =</span> <span class="fu">sum</span>(distance, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                               <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating variables for averages for each cat</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>summaries_by_cat <span class="ot">&lt;-</span> summaries_by_day <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_distance_obs =</span> <span class="fu">mean</span>(mean_distance),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_distance_day =</span> <span class="fu">mean</span>(sum_distance)) </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>cat_reference <span class="ot">&lt;-</span> cat_reference <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Banjo2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Boris2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Rocky"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Striper2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">animal-id</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Ziggy"</span>) </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Binding the reference cat dataset with their average distances per cycle and per day, removing any cat with no age listed</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(summaries_by_cat, </span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                                 cat_reference) </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Tidying up the life stage variable by removing "years" in each observations</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" years"</span>, </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">""</span>, </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>                                                    merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" year"</span>, </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">""</span>, </span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                                                    merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Tidying up the animal comments variable by separating it into two variables for hunting and prey per month</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(merged_summaries_by_cat, </span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">do.call</span>(rbind, </span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">strsplit</span>(merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">animal-comments</span><span class="st">`</span>, </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">"; "</span>, </span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">fixed =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Hunt</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span>,</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">prey_p_month</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2</span><span class="st">`</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span>hunt <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"Yes"</span>, </span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>                                             merged_summaries_by_cat<span class="sc">$</span>Hunt), </span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>                                       <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span>prey_p_month <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"prey_p_month: "</span>, </span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">""</span>, </span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>                                                        merged_summaries_by_cat<span class="sc">$</span>prey_p_month))</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="co">#Tidying up the manipulation comments variable by separating it into two variables for hours spent indoors and number of cats in the household </span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(merged_summaries_by_cat, <span class="fu">do.call</span>(rbind, <span class="fu">strsplit</span>(<span class="fu">trimws</span>(merged_summaries_by_cat<span class="sc">$</span><span class="st">`</span><span class="at">manipulation-comments</span><span class="st">`</span>), <span class="st">";"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">hrs_indoors</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span>,</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">n_cats_household</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2</span><span class="st">`</span>)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span>hrs_indoors <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"hrs_indoors: "</span>, </span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>                                                       <span class="st">""</span>, </span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>                                                       merged_summaries_by_cat<span class="sc">$</span>hrs_indoors))</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat<span class="sc">$</span>n_cats_household <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"n_cats: "</span>, </span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>                                                            <span class="st">""</span>, </span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>                                                            merged_summaries_by_cat<span class="sc">$</span>n_cats_household))</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Getting rid of unnecessary variables and observations outside the United States</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>merged_summaries_by_cat <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">animal-comments</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">manipulation-comments</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Hunt</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">animal-taxon</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">attachment-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">data-processing-software</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">deployment-end-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">duty-cycle</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">manipulation-type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-manufacturer-name</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-mass</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-model</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="st">`</span><span class="at">tag-readout-method</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">study-site</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Denmark"</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">study-site</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">"Newfoundland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter data for the cat named Sparkles on a specific date</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sparkles_cat <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Sparkles"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">==</span> <span class="st">"2016-03-29"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">hms</span>(Time))  <span class="co"># Convert time to hms format</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure data is sorted by time</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>sparkles_cat <span class="ot">&lt;-</span> sparkles_cat[<span class="fu">order</span>(sparkles_cat<span class="sc">$</span>Time), ]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the base ggplot object</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sparkles_cat, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">location-long</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">title =</span> <span class="st">"Location Changes Over Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Function</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plot_cat_movement <span class="ot">&lt;-</span> <span class="cf">function</span>(adjusted_cat_distance, cat_identifier, date) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  motorcat_cat <span class="ot">&lt;-</span> adjusted_cat_distance <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="st">`</span><span class="at">individual-local-identifier</span><span class="st">`</span> <span class="sc">==</span> cat_identifier) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Date <span class="sc">==</span> date) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">as.POSIXct</span>(Time, <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Convert to POSIXct</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(Time)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate title dynamically</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Location Changes Over Time for"</span>, cat_identifier, <span class="st">"on"</span>, date)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(motorcat_cat, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">location-long</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">location-lat</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">title =</span> title) <span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_datetime</span>(</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">name =</span> <span class="st">"Time"</span>,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">"%H:%M:%S"</span>),  <span class="co"># Format labels as HH:MM:SS</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">date_breaks</span>(<span class="st">"2 hours"</span>),   <span class="co"># Specify breaks for the time scale</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">limits =</span> <span class="fu">range</span>(motorcat_cat<span class="sc">$</span>Time) <span class="co"># Set limits based on the range of Time</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage example</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Motorcat"</span>, <span class="st">"2013-08-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Zoey"</span>, <span class="st">"2015-01-07"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cat_movement</span>(adjusted_cat_distance, <span class="st">"Franklin"</span>, <span class="st">"2015-02-25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>age_summaries <span class="ot">&lt;-</span> merged_summaries_by_cat <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_dist_day_by_age =</span> <span class="fu">mean</span>(avg_distance_day),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_dist_obs_by_age =</span> <span class="fu">mean</span>(mean_distance_obs))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_day_by_age)) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"#45105b"</span>, <span class="at">fill =</span> <span class="st">"#9a94bc"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats Each Day, </span><span class="sc">\n</span><span class="st">Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(age_summaries, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">animal-life-stage</span><span class="st">`</span>, <span class="at">y =</span> avg_dist_obs_by_age)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"#45105b"</span>, <span class="at">fill =</span> <span class="st">"#9a94bc"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age in Years"</span>, <span class="at">y =</span> <span class="st">"Average Distance in m"</span>, <span class="at">title =</span> <span class="st">"Average Distance Traveled By Cats per 3-Min Cycle, </span><span class="sc">\n</span><span class="st">Grouped by Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practicecode_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

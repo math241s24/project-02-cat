@@ -7,9 +7,9 @@ website:
   navbar:
     right:
       - icon: github
-        href: https://github.com/math241s24/project-02
+        href: https://github.com/math241s24/project-02-cat/
     left:
-      - text: Project
+      - text: "Project"
         href: index.qmd
       - text: "Proposal"
         href: proposal.qmd
